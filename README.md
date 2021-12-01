@@ -33,13 +33,11 @@
 
 SMD数据集格式见 `data/train.txt`，例如：
 
-```json
-#schedule#
-0 tennis_activity date the_8th
-0 tennis_activity party brother
-1 what is the date and time for the yoga_activity ?	you have two yoga activites scheduled one on wednesday at 5pm and another on the_17th at 11am	['11am', 'yoga', '5pm', 'the_17th', 'wednesday']
-2 thanks	glad i could help , goodbye	[]
-```
+> #schedule#
+> 0 tennis_activity date the_8th
+> 0 tennis_activity party brother
+> 1 what is the date and time for the yoga_activity ?	you have two yoga activites scheduled one on wednesday at 5pm and another on the_17th at 11am	['11am', 'yoga', '5pm', 'the_17th', 'wednesday']
+> 2 thanks	glad i could help , goodbye	[]
 
 第一行#schedule#是该数据样例所属domain
 
@@ -70,20 +68,19 @@ class Global_Memory_Encoder(nn.Module):
 
 例如：
 
-```json
-对话--------
-user: what is the date and time for the yoga_activity ?
-system: you have two yoga activites scheduled one on wednesday at 5pm and another on the_17th at 11am
-
-n元组-------
-[
-	["$u", "turn0", "word0", "what"],
-	["$u", "turn0", "word1", "is"],
-	["$u", "turn0", "word2", "the"],
-	...
-	["$s", "turn0", "word27", "11am"],
-]
-```
+>
+> 对话--------
+> user: what is the date and time for the yoga_activity ?
+> system: you have two yoga activites scheduled one on wednesday at 5pm and another on the_17th at 11am
+>
+> n元组-------
+> [
+> ["$u", "turn0", "word0", "what"],
+> ["$u", "turn0", "word1", "is"],
+> ["$u", "turn0", "word2", "the"],
+> ...
+> ["$s", "turn0", "word27", "11am"],
+> ]
 
 输入n元组的定长编码，输出序列hidden和对话hidden
 
